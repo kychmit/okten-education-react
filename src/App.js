@@ -3,9 +3,9 @@ import {Count, SingleUser, Users} from "./Components";
 const App = () => {
     return (
         <div>
-            {/*<Count/>*/}
+            <Count/>
             <Users/>
-            {/*<SingleUser/>*/}
+            <SingleUser/>
 
         </div>
     );

@@ -6,6 +6,7 @@ import {userService} from "../../services";
 const Users = () => {
 
     const [users, setUsers] = useState([]);
+    // eslint-disable-next-line no-unused-vars
     const [count,setCount] = useState(0);
     const [userDetails, setUserDetails] = useState(null);
 
