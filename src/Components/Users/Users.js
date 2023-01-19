@@ -1,23 +1,32 @@
-import {User} from "../User/User";
 import {useEffect, useState} from "react";
-// import axios from "axios";
-import {axiosService} from "../../services/axiosService";
+
+import {User} from "../User/User";
+import {userService} from "../../services";
 
 const Users = () => {
 
     const [users, setUsers] = useState([]);
-    const [count, setCount ] = useState(0);
+    const [count,setCount] = useState(0);
+    const [userDetails, setUserDetails] = useState(null);
 
     useEffect(() => {
-       axiosService.get('/users')
-            .then(value => value.data)
-            .then(value => setUsers([...value]))
+       userService.getAll().then(value => value.data).then(value => setUsers([...value]))
                           }, [count])
 
     return (
         <div>
-            <button onClick={() => setCount(prevState => prevState+1)}></button>
-            {users.map(user => <User key={user.id} user={user}/>)}
+
+            <h1>UserDetails:</h1>
+
+            {userDetails && <User user={userDetails}/>}
+            {/*або {userDetails && <div>{userDetails.id}--{userDetails.name}</div>}*/}
+
+            <hr/>
+
+            <h1>Users:</h1>
+            {/*<button onClick={()=>setCount(prevState => prevState+1)}>click</button>*/}
+            {users.map(user => <User key={user.id} user={user} setUserDetails={setUserDetails}/>)}
+
         </div>
     );
 };

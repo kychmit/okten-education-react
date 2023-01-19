@@ -1,11 +1,12 @@
-//import {Count} from "./Components/Count/Count";
-import {Users} from "./Components/Users/Users";
+import {Count, SingleUser, Users} from "./Components";
 
 const App = () => {
     return (
         <div>
             {/*<Count/>*/}
             <Users/>
+            {/*<SingleUser/>*/}
+
         </div>
     );
 };
