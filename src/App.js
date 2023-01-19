@@ -5,16 +5,17 @@
 //     https://rickandmortyapi.com/api/character
 //         Створити 6 персонажів
 
-import {Simpsons} from "./components/Simpsons/Simpsons";
+// import {Simpsons} from "./components/Simpsons/Simpsons";
+import {Characters} from "./components/Characters/Characters";
 
 const App = () => {
 
-  return (
-      <div>
-         <Simpsons/>
-
-      </div>
-  );
+    return (
+        <div>
+            {/*<Simpsons/>*/}
+            <Characters/>
+        </div>
+    );
 };
 
 export {App};
