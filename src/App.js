@@ -1,14 +1,35 @@
+import './App.css'
+import {Users} from "./Components/Users/Users";
+import {User} from "./Components/User/User";
+import {getUsers} from "./api/getUsers";
+import {useEffect, useState} from "react";
+
 const App = () => {
-  return (
-      <div>
-        App
-      </div>
-  );
+
+    const [users, setUsers] = useState([]);
+    const [userId, setUserId] = useState(null);
+
+    useEffect(() => {
+
+        getUsers().then(resp => setUsers(resp))
+    }, []);
+
+    return (
+        <div className="App">
+
+            <div className="info-block">
+                {!!users.length && <Users users={users} onSelectUser={setUserId}/>}
+            </div>
+
+            <div className="divider"/>
+
+            <div className="info-block">
+
+                {!! userId && <User onRemoveSetUser={setUserId} userId={userId}/>}
+            </div>
+
+        </div>
+    );
 };
 
 export {App};
-
-// з jsonplaceholder отримати всіх юзерів в компоненту Users.js
-// відобразити кожного інформацію (id,name) з кожного юзера (компонента User)
-// Зробити кнопку вибора юзера, при натисканні на яку в Users.js ви покажете детальну інфомацію
-// про користувача(довільно обрану інформацію)

@@ -1,8 +1,18 @@
-const Users = () => {
+import React from 'react';
+
+const Users = ({users,onSelectUser}) => {
 
     return (
         <div>
-            App
+            {users.map((item) => {
+                const {id: userId, name} = item;
+                return (
+                    <div key={`${userId} -item`}>
+                        {userId}---{name}
+                        <button onClick={() => onSelectUser(userId)}> Select user </button>
+                    </div>
+                )
+            })}
         </div>
     );
 };
